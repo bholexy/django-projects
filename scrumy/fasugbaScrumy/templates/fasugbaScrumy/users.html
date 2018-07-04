@@ -1,0 +1,24 @@
+{% extends 'fasugbaScrumy/layout.html' %}
+
+{% block content %}
+	
+
+	
+
+	<form action="" method="post"> 
+		{% csrf_token %}
+		
+		<label for="new_task">Scrumy Users:</label>
+		
+			<select name="user_assigned" id="id_user_assigned" required>
+				{% for each_user in changed_users %}
+					<option value="{{each_user.id}}" selected="selected">{{each_user.scrumy_user_role}} {{each_user.first_name}} {{each_user.last_name}} &nbsp{{all_users}}</option>
+				{% endfor %}
+			</select>
+		<br/> 
+		<br/>
+        <button type="submit" name="login">Add Task</button>
+    </form>
+		
+
+{% endblock %}

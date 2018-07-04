@@ -1,0 +1,177 @@
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th{
+    color: #aa0000;
+    text-align: center;
+ }
+
+ table, th, td {
+	border-collapse: collapse;
+    border-bottom: 1px solid lightgrey;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+
+th, td {
+    padding: 5px;
+}
+
+td{
+	text-align: left;
+}
+
+.add_href{
+	text-decoration: none;
+	font-size: 30px;
+}
+
+
+li{
+	text-align: left;
+}
+
+body{
+	border: 0;
+	width: 1500px;
+	font-family: Helvetica;
+    background: linear-gradient(to right, #aaaaaa, #8c8c8c);
+}
+
+header{
+	width: auto;
+	height: 100px;
+
+}
+
+
+.headerNav{
+	background-color: #ffffff;
+	float: right;
+	height: 30px;
+	width: auto;
+	margin: 30px 0 0 0;
+	padding: 0;
+}
+nav ul{
+	list-style-type: none;
+	display: flex;
+	margin: 0;
+	padding: 0;
+	float: right;
+}
+nav ul li{
+	padding: 5px 10px; 
+	margin: 0 10PX;
+}
+nav ul li a{
+	padding: 8px 9px 8px 16px;
+	text-decoration: none;
+	color: #cc0000;
+	font-weight: bolder;
+}
+nav ul li a:hover{
+	background-color: #330000; 
+	color: white;
+	height: 100px;
+}
+nav ul li a.active {
+    background-color: #330000;
+    color: white;
+}
+
+.table_bg{
+	background-color: #e0e0d1;
+}
+
+footer {
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;         
+}
+
+
+
+
+th{
+	background-color: #e6e6e6;
+}
+
+
+
+tr:nth-child(odd){
+	background-color: #dddddd;
+}
+
+section{
+	width: 100%;
+	height: auto;
+	background-color: #ffffff;
+	margin:  10px 0;
+	}
+
+.list_div {
+	font-size: 13px;
+    background-color: lightgrey;
+    border: 1px solid grey;
+    width: 75px;
+    height: 75px;
+    padding: 3px;
+    margin: 5px;
+    text-align: center;
+}
+
+input.ng-invalid {
+    background-color: pink;
+}
+
+input.ng-valid {
+    background-color: lightgreen;
+}
+
+input.ng-touched {
+    background-color: lightblue;
+}
+
+input[type=button], input[type=submit], input[type=reset], button {
+    background-color: #00001a;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    margin: 4px 20px;
+    cursor: pointer;
+    border-radius: 10%;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+
+input[type=text], input[type=email], input[type=password], input[type=select], textarea, select{
+    width: 100%;
+    padding: 5px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+}
+
+a{
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.bottom{
+	vertical-align: bottom;
+	text-align: left;
+	font-size: 7px;
+}
+
+.list_form{
+	list-style-type: none;
+}

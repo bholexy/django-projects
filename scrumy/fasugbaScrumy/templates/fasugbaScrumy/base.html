@@ -1,0 +1,32 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>My Scrumy App (SAP)</title>
+	<link rel="stylesheet" href="{% static 'css/fasugbaScrumy.css' %}">
+	<script src="{% static 'fasugbaScrumy/js/angular.js' %}"></script>
+	<script src="{% static 'fasugbaScrumy/js/angular-route.js' %}"></script>
+	<script src="{% static 'fasugbaScrumy/js/app.js' %}"></script>
+	<script src="{% static 'fasugbaScrumy/js/controllers.js' %}"></script>
+</head>
+
+<body  data-ng-app="myApp">
+{% verbatim %}
+
+
+<section>
+	<div data-ng-view></div>
+</section>
+<section>		
+	<a data-ng-href="#!">static</a>
+	<a data-ng-href="#!pages">pages</a>
+	<a data-ng-href="#!static">static</a>
+</section>
+
+
+{% endverbatim %}	
+</body>
+</html>
+

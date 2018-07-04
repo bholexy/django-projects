@@ -1,0 +1,16 @@
+{% extends 'fasugbaScrumy/layout.html' %}
+
+{% block title %} Add User{% endblock %}
+
+{% block content %}
+
+	
+
+	<form action="" method="post"> 
+		{% csrf_token %}
+		{{ form.as_p }}
+        <button type="submit" name="login">Add User</button>
+    </form>
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'fasugbaScrumy/layout.html' %}
+
+{% block content %}
+
+
+<h1>Signup Page </h1>
+
+<form action="" method="POST">
+	{% csrf_token %}
+
+	{% if error %}
+	{{ error }}
+	{% endif %}
+
+	<table>
+	{{ form }}
+	</table>
+
+	<input type="submit" name="submit" value="Sign up"/>
+</form>
+
+
+{% endblock %}

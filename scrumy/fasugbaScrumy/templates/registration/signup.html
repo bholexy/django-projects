@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up </title>
+</head>
+<body>
+	<h1>Signup Page </h1>
+
+<form action="" method="POST">{% csrf_token %}
+
+{{ error }}
+{% endif %}
+{{ form.as_p }}
+
+<input type="submit" name="submit" value="Sign up"/>
+</form>
+</body>
+</html>

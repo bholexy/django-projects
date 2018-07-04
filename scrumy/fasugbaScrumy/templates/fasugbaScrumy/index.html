@@ -1,0 +1,56 @@
+{% extends 'fasugbaScrumy/layout.html' %}
+
+{% block content %} 
+	
+	<table width="100%">
+	  <tr>
+	    <th colspan="2" style="width: 18%;">User {{userGoal}} </th>
+	    <th colspan="2" style="width: 22%;">Weekly Goals</th>
+	    <th style="width: 20%;">Daily Goals</th>
+	    <th style="width: 20%;">Verify</th>
+	    <th style="width: 20%;">Done</th>
+	  </tr>
+
+
+
+
+
+
+	  <tr>
+	  	<td><a href="{% url 'add_user' %}" class="add_href" style="width: 3%;">+</a></td>
+	  	<td> {{user}} </td>
+	  	<td><a href="{% url 'add_task' %}" class="add_href" style="width: 3%;">+</a></td>
+	  	
+	  	<td><ol>{% for goal in userGoals %}{% if goal.scrumy_status.name == "Weekly" %} <li>{{goal.goals}}</li> {%endif%} {% endfor %}</ol></td>
+	  	<td><ol>{% for goal in userGoals %}{% if goal.scrumy_status.name == "Daily" %} <li>{{goal.goals}}</li>  {%endif%} {% endfor %} </ol></td>
+	  	<td><ol>{% for goal in userGoals %}{% if goal.scrumy_status.name == "Verified" %} <li>{{goal.goals}}</li> {%endif%} {% endfor %} </ol></td>
+	  	<td><ol>{% for goal in userGoals %}{% if goal.scrumy_status.name == "Done" %} <li>{{goal.goals}}</li> {%endif%} {% endfor %} </ol></td>
+	  	
+	  </tr>
+
+
+	 <!--  <tr>
+	  		
+	    		<td><a href="{% url 'add_user' %}" class="add_href" style="width: 3%;">+</a> </td>
+	    		<td>{{user.first_name}}&nbsp {{user.last_name}}</td>
+	    		<td><a href="{% url 'add_task' %}" class="add_href" style="width: 3%;">+</a> </td>
+	    		{{ x.scrumy_status.name }}
+			    <td><ol> {% if x.scrumy_status.name == 'Weekly' %} {% for x in userGoal %} 
+			    		<li> {{x.goals}}</li> {% endfor %} {% endif %}
+			    </ol> </td>
+			    <td><ol> {% if x.scrumy_status.name == 'Daily' %} {% for x in userGoal %} 
+			    		<li> {{x.goals}}</li> {% endfor %} {% endif %}
+			    </ol> </td>
+			    <td><ol> {% if x.scrumy_status.name == 'Verified' %} {% for x in userGoal %}
+			    		<li> {{x.goals}}</li> {% endfor %} {% endif %}
+			    </ol> </td>
+			    <td><ol> {% if x.scrumy_status.name == 'Done' %} {% for x in userGoal %} 
+			    		<li> {{x.goals}}</li> {% endfor %} {% endif %}
+			    </ol> </td>
+			    
+	  </tr> -->
+	 </table>
+
+
+{% endblock %}
+

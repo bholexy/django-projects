@@ -1,0 +1,45 @@
+{% extends 'fasugbaScrumy/layout.html' %}
+
+{% block content %}
+
+	
+	<table width="100%">
+		 <tr>
+		    <th></th>
+		    <th>User</th>
+		    <th></th>
+		    <th>Weekly Goals</th>
+		    <th>Daily Goals</th>
+		    <th>Verify</th>
+		    <th>Done</th>
+		 </tr>
+
+
+	    <tr>
+	  		
+	    		<td><a href="{% url 'add_user' %}" style="text-decoration: none;">+</a> </td>
+	    		<td>{{user.first_name}}&nbsp {{user.last_name}}</td>
+	    		<td><a href="{% url 'add_task' %}" style="text-decoration: none;">+</a> </td>
+			    <td>
+			    	<ol>
+
+				    	{% for x in userGoal %}
+				    		<li>
+				    			{{x.goals}}&nbsp&nbsp&nbsp {{x.ScrumyUser.id}}
+
+				    		</li>
+
+				    		
+				    	{% endfor %}
+				    </ol>
+			    </td>
+			    <td></td>
+			    <td></td>
+			    <td>{{size}}</td>
+	  </tr>
+
+	  
+	</table> 
+
+
+{% endblock %}

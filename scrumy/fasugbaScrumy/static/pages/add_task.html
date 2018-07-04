@@ -1,0 +1,29 @@
+<form>
+<ul class="list_form">
+	<li>gxfxfxf {{task_user_id}}hjgufu
+		<textarea name="goal" data-ng-model="goal" value = 'this is input task' ></textarea>
+		{{task_user_id}}
+	</li>
+	<li>
+		<select ng-model="status">
+			<option ng-repeat="y in statusJS"  value={{y.id}}>
+					{{y.name}}
+			</option>
+		</select>
+
+
+	</li>
+</ul>
+
+
+
+
+<button type="submit" name="addGoal" data-ng-click='addGoal()'>Add Task</button>
+</form>
+
+<!-- ng-value='x.url'
+	"{{x.name}}"
+ -->
+
+<!-- 	<select ng-model="user" ng-options="y.username for (x, y) in usersJS">
+</select> -->

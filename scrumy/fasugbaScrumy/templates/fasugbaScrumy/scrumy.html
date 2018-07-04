@@ -1,0 +1,246 @@
+
+
+{% load static %}
+<!DOCTYPE html>
+<html  data-ng-app="myApp">
+<head>
+	<meta charset="utf-8"/>
+	<title>My Scrumy App (SAP)</title>
+	<link rel="stylesheet" href="{% static 'css/fasugbaScrumy.css' %}">
+	<script src="{% static 'fasugbaScrumy/js/angular.js' %}"></script>
+	<script src="{% static 'fasugbaScrumy/js/angular-route.js' %}"></script>
+	<script src="{% static 'fasugbaScrumy/js/angular-resource.min.js' %}"></script>
+	<script src="{% static 'fasugbaScrumy/js/app.js' %}"></script>
+	<script src="{% static 'fasugbaScrumy/js/controllers.js' %}"></script>
+</head>
+
+<body id="table" data-ng-controller="myCtrl">
+{% verbatim %}
+	<script type="text/javascript">
+		var x ='Learn Angular';
+		var y = 'Learn Python';
+		var tasks = ["Learn Angular", "Learn Javascript"];
+	</script>
+
+
+
+	<section>
+
+		<table>
+
+			<tr  style="border: 0px solid white;">
+				<td style="border: 0px solid white">
+					<a data-ng-href="#AddUser">Add User</a>  
+				</td>
+				<td colspan="2">
+					<div data-ng-view data-autoscroll = "true"></div>
+				</td>
+			</tr>
+			<tr>
+				<th style=" width: 150px">Username</th>
+				<th style="width: 5px; background-color: lightgrey"></th>
+				<th style="width: 200px">Weekly Target</th>
+				<th style="width: 460px">Daily Target</th>
+				<th style="width: 375px">Verified</th>
+				<th style="width: 200px">Done</th>
+			</tr>
+
+			<tr data-ng-repeat="user in usersJS">
+				<td>{{user.username}}</td>
+				<td style="width: 5px; background-color:  #f5f5f0" >
+					<a ng-model="task_user_id" value={{user.id}} data-ng-href="#AddTask/id/{{user.id}}">+</a></td>
+					
+					
+				<td>
+					<div style="display: inline-flex;" data-ng-repeat="goal in user.scrumygoalsjs">
+						<div class="list_div" data-ng-if ="goal.scrumy_status_id == 1">
+							{{goal.goals}}{{goal.scrumy_user_id}}<br><div class="bottom">Weekly</div>
+						</div>
+					</div> 
+				</td>
+				<td style="background-color:  #f5f5f0">
+					<div style="display: inline-flex;" data-ng-repeat="goal in user.scrumygoalsjs">
+						<div class="list_div" data-ng-if ="goal.scrumy_status_id == 2">
+							{{goal.goals}}{{goal.scrumy_user_id}}<br><div class="bottom">Daily</div>
+						</div>
+					</div>
+				</td>
+				<td>
+					<div style="display: inline-flex;" data-ng-repeat="goal in user.scrumygoalsjs">
+						<div class="list_div" data-ng-if ="goal.scrumy_status_id == 3">
+							{{goal.goals}}{{goal.scrumy_user_id}}<div class="bottom">Verified</div>
+						</div>
+					</div>
+				</td>
+				<td style="background-color:  #f5f5f0">
+					<div  style="display: inline-flex;" data-ng-repeat="goal in user.scrumygoalsjs">
+						<div class="list_div" data-ng-if ="goal.scrumy_status_id == 4">
+							{{goal.goals}}{{goal.scrumy_user_id}}<div class="bottom">Done</div>
+						</div>
+					</div>
+
+				</td>
+				
+			</tr>
+			
+
+		</table>
+		<section>
+			
+		</div>
+			
+		</section>
+		
+		
+	</section>
+
+<!-- 
+	<section data-ng-init = "myArray = [{name:'Adetoun Remi',
+											task:'+',
+											weekly:'Go to class',
+											daily:'extract the juice',
+											verified:'Grind the concortion',
+											done:'Heat the food'},
+											{name:'Adetoun Remier',
+											task:'+',
+											weekly:'Go to class',
+											daily:'extract the juice',
+											verified:'Grind the concortion',
+											done:'Heat the food'}
+											]">
+		<table id="table" data-ng-controller="myCtrl">
+			<tr>
+				<th>Name</th>
+				<th>Add Task</th>
+				<th>Weekly Target</th>
+				<th>Daily Target</th>
+				<th>Verified</th>
+				<th>Done</th>
+			</tr>
+
+			<tr>
+				<td id="name">Adeniruju Yinka</td>
+				<td style="width: 5px; text-align: center;">+</td>
+				<td>
+					<div class="list_div">
+						<script type="text/javascript">
+							document.write("value of x is: <b></br>" + x + "</b>")
+						</script>
+					</div>
+				</td>
+				<td>
+					<div class="list_div">
+						<script type="text/javascript">
+							document.write("value of x is: <b></br>" + y + "</b>")
+						</script>
+					</div>
+				</td>
+				<td>
+					<div class="list_div">
+						<script type="text/javascript">
+							document.write("length of string x + y is: <b></br>" + (x+y).length + "</b>")
+						</script>
+					</div>
+				</td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td>Olateju Yinka</td>
+				<td style="width: 5px; text-align: center;">+</td>
+				<td><div class="list_div">Go to school</div></td>
+				<td><div class="list_div">register for hackrmoon</div></td>
+				<td><div class="list_div">coded minton</div></td>
+				<td><div class="list_div">Register for some gig</div></td>
+			</tr>
+
+			<tr data-ng-repeat = "x in myArray">
+				<td>{{x.name}}</td>
+				<td>{{x.task}}</td>
+				<td>{{x.weekly}}</td>
+				<td>{{x.daily}}</td>
+				<td>{{x.verified}}</td>
+				<td>{{x.done}}ffff</td>
+			</tr>
+
+			<tr data-ng-repeat = "user in users">
+				<td>{{user.username}}</td>
+				<td>{{user.email}}</td>
+				<td>{{user.phone_no}}</td>
+				<td>{{user.gender}}</td>
+				<td>{{user.username}}</td>
+				<td>{{user.email}}</td>
+			</tr>
+
+			<tr data-ng-repeat = "user in users">
+				<td>{{user.username}}</td>
+				<td>{{user.email}}</td>
+				<td>{{user.phone_no}}</td>
+				<td>{{user.gender}}</td>
+				<td>{{user.username}}</td>
+				<td>{{user.email}}</td>
+			</tr>
+			
+
+			<tr>
+				<td><input type="submit" name="Add User" value="Add User" onclick="my_table(x,y)"> </td>
+				<td></td>
+				<td><input type="submit" name="Change User" value="Change User" onclick="forNothing(x)"> 				</td>
+				<td colspan="4"><input type="submit" name="Delete Task" value="Delete Task" onclick="deleteTask()"></td>
+			</tr>
+		</table>
+
+	</section>
+	<section>
+		<form name="myForm">
+			<span ng-show="myForm.myText.$touched && myForm.myText.$invalid">This field is required.</span>
+			<textarea name="myText" ng-model="myText" required></textarea>
+			<input type="submit" name="submit" value="submit">			
+		</form>
+	</section>
+
+	<section style="background-color: inherit;">	
+		<p style="font-weight: bolder;" id="message"></p><br/>
+		<div my-directive></div>
+	</section>
+
+
+	<section>
+		<div data-ng-init = 'radius = 10'> 
+			<p>Input something in the input box:</p>
+			<p>Name : <input type="text" data-ng-model="email" placeholder="Enter name here"></p>
+			<h1 data-ng-bind = "email"></h1>
+			
+		</div>
+
+		<div>
+			
+		</div>
+
+
+
+		<div data-ng-controller="myCtrl">
+
+					<h1>{{headerValue}}</h1>
+					Email: <input type="text" data-ng-model="email"><br>
+					Phone No: <input type="text" data-ng-model="phone_no"><br>
+					<br>
+					Email: {{email}}<br>
+					Phone No: {{phone_no}}
+					<button ng-click = "changeHeader()">My TaskManager  header</button>
+				
+
+		</div>	
+	
+	</section> -->
+
+{% endverbatim %}	
+	
+
+
+
+
+</body>
+</html>
+
+

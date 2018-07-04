@@ -1,0 +1,55 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}
+
+			{% endblock %}</title>
+	<link rel="stylesheet" href="{% static 'css/fasugbaScrumy.css' %}">
+</head>
+
+
+<body>
+
+	<header>
+		{% if user.is_authenticated %}
+			<h2 style="color: blue; margin-bottom: -100px"> Hello {{request.user.get_full_name}}!!!</h2>
+		{% else %}
+			<h2 style="color: #ffffff"> Hello Visitor!!!</h2>
+		{% endif %}
+
+
+		<nav class="headerNav">
+			<ul>
+				<li><a href="{% url 'index' %}">Personal Goal</a></li>
+				<li><a href="{% url 'view_goals' %}">View All</a></li>
+				<li><a href="{% url 'add_task' %}">Add Task</a></li>
+				<li><a href="{% url 'move_goal' %}">Move Task</a></li>
+				{% 	if user.is_authenticated %}
+				<li><a href="{% url 'logout' %}">Log Out</a></li>
+				{% else %}
+				<li><a href="{% url 'login' %}">Login</a></li>
+				<li><a href="{% url 'signup' %}">Register</a></li>
+				{% endif %}
+			</ul>
+		</nav>
+	</header>
+
+	
+
+	<section class="topSection">
+
+		
+		<div class="table_bg">
+			{% block content %}
+
+			{% endblock %}
+		</div>
+
+	
+	</section>
+
+	<footer>Copyright © richMind</footer>	
+
+</body>
+</html>
